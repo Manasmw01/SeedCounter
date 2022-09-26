@@ -1,0 +1,110 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"18 delay.c
+[; ;delay.c: 18: void DELAY_us(uint16_t us_count)
+[v _DELAY_us `(v ~T0 @X0 1 ef1`ui ]
+"19
+[; ;delay.c: 19: {
+{
+[e :U _DELAY_us ]
+"18
+[; ;delay.c: 18: void DELAY_us(uint16_t us_count)
+[v _us_count `ui ~T0 @X0 1 r1 ]
+"19
+[; ;delay.c: 19: {
+[f ]
+"20
+[; ;delay.c: 20:     while (us_count != 0)
+[e $U 2  ]
+[e :U 3 ]
+"21
+[; ;delay.c: 21:     {
+{
+"22
+[; ;delay.c: 22:         us_count--;
+[e -- _us_count -> -> 1 `i `ui ]
+"23
+[; ;delay.c: 23:     }
+}
+[e :U 2 ]
+"20
+[; ;delay.c: 20:     while (us_count != 0)
+[e $ != _us_count -> -> 0 `i `ui 3  ]
+[e :U 4 ]
+"24
+[; ;delay.c: 24: }
+[e :UE 1 ]
+}
+"37
+[; ;delay.c: 37: void DELAY_ms(uint16_t ms_count)
+[v _DELAY_ms `(v ~T0 @X0 1 ef1`ui ]
+"38
+[; ;delay.c: 38: {
+{
+[e :U _DELAY_ms ]
+"37
+[; ;delay.c: 37: void DELAY_ms(uint16_t ms_count)
+[v _ms_count `ui ~T0 @X0 1 r1 ]
+"38
+[; ;delay.c: 38: {
+[f ]
+"39
+[; ;delay.c: 39:     while (ms_count != 0)
+[e $U 6  ]
+[e :U 7 ]
+"40
+[; ;delay.c: 40:     {
+{
+"41
+[; ;delay.c: 41:         DELAY_us(300u);
+[e ( _DELAY_us (1 -> 300 `ui ]
+"42
+[; ;delay.c: 42:         ms_count--;
+[e -- _ms_count -> -> 1 `i `ui ]
+"43
+[; ;delay.c: 43:     }
+}
+[e :U 6 ]
+"39
+[; ;delay.c: 39:     while (ms_count != 0)
+[e $ != _ms_count -> -> 0 `i `ui 7  ]
+[e :U 8 ]
+"44
+[; ;delay.c: 44: }
+[e :UE 5 ]
+}
+"64
+[; ;delay.c: 64: void DELAY_sec(uint16_t sec_count)
+[v _DELAY_sec `(v ~T0 @X0 1 ef1`ui ]
+"65
+[; ;delay.c: 65: {
+{
+[e :U _DELAY_sec ]
+"64
+[; ;delay.c: 64: void DELAY_sec(uint16_t sec_count)
+[v _sec_count `ui ~T0 @X0 1 r1 ]
+"65
+[; ;delay.c: 65: {
+[f ]
+"66
+[; ;delay.c: 66:     while (sec_count != 0) {
+[e $U 10  ]
+[e :U 11 ]
+{
+"67
+[; ;delay.c: 67:         DELAY_ms(1000);
+[e ( _DELAY_ms (1 -> -> 1000 `i `ui ]
+"68
+[; ;delay.c: 68:         sec_count--;
+[e -- _sec_count -> -> 1 `i `ui ]
+"69
+[; ;delay.c: 69:     }
+}
+[e :U 10 ]
+"66
+[; ;delay.c: 66:     while (sec_count != 0) {
+[e $ != _sec_count -> -> 0 `i `ui 11  ]
+[e :U 12 ]
+"70
+[; ;delay.c: 70: }
+[e :UE 9 ]
+}
